@@ -1,0 +1,63 @@
+name: mcpmaster
+region: nyc1
+
+services:
+  # Management Interface with SSH
+  - name: mcp-manager
+    source_dir: /
+    github:
+      repo: klogins-hash/mcp-servers-deployment
+      branch: main
+      deploy_on_push: true
+    dockerfile_path: Dockerfile
+    http_port: 8000
+    instance_count: 1
+    instance_size_slug: basic-s
+    health_check:
+      http_path: /health
+    envs:
+      # System Environment Variables
+      - key: GITHUB_TOKEN
+        scope: RUN_TIME
+        type: SECRET
+      - key: DIGITALOCEAN_TOKEN
+        scope: RUN_TIME
+        type: SECRET
+      - key: GITHUB_REPO
+        value: klogins-hash/mcp-servers-deployment
+      - key: SSH_ENABLED
+        value: "true"
+      
+      # MCP Server API Keys (add your actual values)
+      - key: SLACK_TOKEN
+        value: "xoxb-your-slack-bot-token-here"
+        scope: RUN_TIME
+        type: SECRET
+      - key: STRIPE_SECRET_KEY
+        value: "sk_live_your-stripe-secret-key-here"
+        scope: RUN_TIME
+        type: SECRET
+      - key: POSTGRES_URL
+        value: "postgresql://user:password@host:5432/database"
+        scope: RUN_TIME
+        type: SECRET
+      
+      # MCP Server Configuration
+      - key: ROBOTS_TXT_RESPECT
+        value: "true"
+      - key: MCP_LOG_LEVEL
+        value: "info"
+      - key: FETCH_TIMEOUT
+        value: "30"
+      - key: MAX_FILE_SIZE
+        value: "10485760"  # 10MB
+      
+      # Optional: Custom MCP Server Settings
+      - key: GITHUB_REPO_ACCESS
+        value: "public"
+      - key: SLACK_WORKSPACE_ID
+        value: "your-workspace-id"
+      - key: MEMORY_PERSIST
+        value: "true"
+
+  # Additional MCP servers will be added dynamically via SSH management

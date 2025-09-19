@@ -295,6 +295,7 @@ class MCPWebHandler(BaseHTTPRequestHandler):
                 <div class="section">
                     <h2>🎛️ Quick Actions</h2>
                     <div class="quick-actions">
+                        <button class="btn btn-success" onclick="addServer('business-agent')" style="background: linear-gradient(45deg, #ff6b6b, #ee5a24); font-weight: bold;">🤖 Deploy Business Agent</button>
                         <button class="btn btn-success" onclick="addServer('github')">🐙 Deploy GitHub</button>
                         <button class="btn btn-success" onclick="addServer('postgres')">🐘 Deploy PostgreSQL</button>
                         <button class="btn btn-success" onclick="addServer('slack')">💬 Deploy Slack</button>

@@ -23,6 +23,7 @@ COPY . .
 # Make scripts executable
 RUN chmod +x scripts/*.sh
 RUN chmod +x management/mcp_manager.py
+RUN chmod +x custom/mcp_server_config.py
 
 # Setup SSH
 RUN mkdir -p /var/run/sshd

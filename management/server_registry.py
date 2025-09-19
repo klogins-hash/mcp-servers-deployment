@@ -134,19 +134,35 @@ class MCPServerRegistry:
                 github_repo="modelcontextprotocol/servers"
             ),
             "stripe": MCPServerInfo(
-                name="Stripe Payments",
+                name="Stripe MCP Server",
                 package_name="mcp-server-stripe",
-                description="Stripe payment processing and management",
+                description="Stripe payment processing and subscription management",
                 official=True,
-                docker_image="mcp/stripe",
-                uvx_command="uvx mcp-server-stripe", 
-                default_port=8087,
+                docker_image="mcpservers/stripe:latest",
+                uvx_command="uvx mcp-server-stripe",
+                default_port=8007,
                 env_vars={
-                    "STRIPE_SECRET_KEY": "",
-                    "STRIPE_WEBHOOK_SECRET": ""
+                    "STRIPE_SECRET_KEY": "sk_live_your_stripe_secret_key"
                 },
-                capabilities=["payments", "customers", "subscriptions"],
-                github_repo="modelcontextprotocol/servers"
+                capabilities=["payments", "subscriptions", "customers", "invoices"],
+                github_repo="https://github.com/modelcontextprotocol/servers/tree/main/src/stripe"
+            ),
+            "business-agent": MCPServerInfo(
+                name="Business Agent MCP Server",
+                package_name="business-agent-mcp",
+                description="LangGraph-powered business assistant with Gmail, Calendar, Contacts, and workflow coordination",
+                official=False,
+                docker_image="custom/business-agent-mcp:latest",
+                uvx_command="python3 /app/custom/mcp_server_config.py",
+                default_port=8008,
+                env_vars={
+                    "LANGGRAPH_URL": "https://fa6899b6-24c8-425e-ba2a-f6efda16a7da.us.langgraph.app",
+                    "RUBE_SESSION_ID": "G65-NEHYF",
+                    "RUBE_API_KEY": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJ1c2VyXzAxSzRRSDI5R1pWQURROU1IQVhWWFdZUjZLIiwib3JnSWQiOiJvcmdfMDFLNFFIMlBIUzI2RzJBVkRWRkZNUE0zNjkiLCJpYXQiOjE3NTc0Mzg4MDB9.hYQ-8BeA54VAZ9Z1zNolvJZ8U-VHLNlkq9tZxY_PE2o",
+                    "GMAIL_EMAIL": "dp@thekollektiv.xyz"
+                },
+                capabilities=["email", "calendar", "contacts", "research", "workflows", "vapi-integration", "langgraph"],
+                github_repo="custom"
             )
         }
     
