@@ -33,21 +33,4 @@ services:
       python /app/scripts/health-check.py
       "
 
-  # Default MCP Servers (can be managed via SSH)
-  - name: mcp-fetch
-    source_dir: /
-    github:
-      repo: klogins-hash/mcp-servers-deployment
-      branch: main
-      deploy_on_push: true
-    run_command: uvx mcp-server-fetch --host 0.0.0.0 --port 8080
-    http_port: 8080
-    instance_count: 1
-    instance_size_slug: basic-xxs
-    health_check:
-      http_path: /health
-    envs:
-      - key: MCP_SERVER_TYPE
-        value: fetch
-      - key: ROBOTS_TXT_RESPECT
-        value: "true"
+  # Additional MCP servers will be added dynamically via SSH management
