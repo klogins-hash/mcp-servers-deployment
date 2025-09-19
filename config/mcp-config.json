@@ -1,0 +1,17 @@
+{
+  "default_settings": {
+    "auto_deploy": true,
+    "health_check_enabled": true,
+    "log_level": "INFO"
+  },
+  "server_defaults": {
+    "instance_size": "basic-xxs",
+    "instance_count": 1,
+    "health_check_path": "/health"
+  },
+  "deployment": {
+    "github_integration": true,
+    "auto_rollback": true,
+    "deployment_timeout": 600
+  }
+}

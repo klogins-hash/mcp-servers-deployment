@@ -1,0 +1,69 @@
+{
+  "official_servers": {
+    "fetch": {
+      "name": "Web Content Fetch",
+      "description": "Fetches and converts web content to markdown",
+      "package": "mcp-server-fetch",
+      "capabilities": ["web_fetch", "html_to_markdown"],
+      "port": 8080
+    },
+    "git": {
+      "name": "Git Repository Operations", 
+      "description": "Git repository operations and management",
+      "package": "mcp-server-git",
+      "capabilities": ["git_read", "git_search", "git_manipulate"],
+      "port": 8081
+    },
+    "filesystem": {
+      "name": "Filesystem Operations",
+      "description": "Secure file and directory operations", 
+      "package": "mcp-server-filesystem",
+      "capabilities": ["file_read", "file_write", "directory_ops"],
+      "port": 8082
+    },
+    "memory": {
+      "name": "Knowledge Graph Memory",
+      "description": "Persistent memory using knowledge graphs",
+      "package": "mcp-server-memory", 
+      "capabilities": ["memory_store", "memory_retrieve", "graph_ops"],
+      "port": 8083
+    },
+    "postgres": {
+      "name": "PostgreSQL Database",
+      "description": "PostgreSQL database operations",
+      "package": "mcp-server-postgres",
+      "capabilities": ["db_read", "db_write", "schema_inspect"], 
+      "port": 8084
+    },
+    "github": {
+      "name": "GitHub Integration",
+      "description": "GitHub repositories, issues, and PRs",
+      "package": "mcp-server-github",
+      "capabilities": ["github_repos", "github_issues", "github_prs"],
+      "port": 8085
+    },
+    "slack": {
+      "name": "Slack Integration", 
+      "description": "Slack workspace and channel management",
+      "package": "mcp-server-slack",
+      "capabilities": ["slack_channels", "slack_messages", "slack_users"],
+      "port": 8086
+    },
+    "stripe": {
+      "name": "Stripe Payments",
+      "description": "Stripe payment processing and management", 
+      "package": "mcp-server-stripe",
+      "capabilities": ["payments", "customers", "subscriptions"],
+      "port": 8087
+    }
+  },
+  "community_servers": {
+    "example": {
+      "name": "Example Community Server",
+      "description": "Example of a community-contributed MCP server",
+      "package": "mcp-server-example",
+      "capabilities": ["example_capability"],
+      "port": 8088
+    }
+  }
+}

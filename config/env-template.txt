@@ -1,0 +1,26 @@
+# DigitalOcean Configuration
+DIGITALOCEAN_TOKEN=your_digitalocean_token_here
+DIGITALOCEAN_APP_ID=your_app_id_here
+
+# GitHub Configuration
+GITHUB_TOKEN=your_github_token_here
+GITHUB_REPO=your-username/mcp-servers-deployment
+
+# MCP Server Environment Variables
+# GitHub Server
+GITHUB_TOKEN=your_github_personal_access_token
+
+# Slack Server
+SLACK_TOKEN=xoxb-your-slack-bot-token
+SLACK_SIGNING_SECRET=your_slack_signing_secret
+
+# Stripe Server
+STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key
+STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret
+
+# PostgreSQL Server
+POSTGRES_URL=postgresql://user:password@host:port/database
+
+# SSH Configuration
+SSH_ENABLED=true
+SSH_PUBLIC_KEY=ssh-rsa_your_public_key_here
