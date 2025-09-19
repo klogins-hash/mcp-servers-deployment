@@ -13,8 +13,8 @@ fi
 mkdir -p /home/mcpmanager/.ssh
 chmod 700 /home/mcpmanager/.ssh
 
-# Add your public key (replace with your actual key)
-echo "ssh-rsa YOUR_PUBLIC_KEY_HERE your-email@example.com" >> /home/mcpmanager/.ssh/authorized_keys
+# Add your public key
+echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE7XEIgefe6ZhzhFk6dPQ/vJBbsmXPhcug9xykxMTw2S franksimpson@Mac.lan" >> /home/mcpmanager/.ssh/authorized_keys
 chmod 600 /home/mcpmanager/.ssh/authorized_keys
 chown -R mcpmanager:mcpmanager /home/mcpmanager/.ssh
 

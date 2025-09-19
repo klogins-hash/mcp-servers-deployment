@@ -26,11 +26,5 @@ services:
         value: klogins-hash/mcp-servers-deployment
       - key: SSH_ENABLED
         value: "true"
-    run_command: |
-      bash -c "
-      /app/scripts/install-manager.sh && 
-      /app/scripts/setup-ssh.sh && 
-      python /app/scripts/health-check.py
-      "
 
   # Additional MCP servers will be added dynamically via SSH management
