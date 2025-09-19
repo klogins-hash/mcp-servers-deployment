@@ -6,7 +6,7 @@ services:
   - name: mcp-manager
     source_dir: /
     github:
-      repo: YOUR_GITHUB_USERNAME/mcp-servers-deployment
+      repo: klogins-hash/mcp-servers-deployment
       branch: main
       deploy_on_push: true
     dockerfile_path: Dockerfile
@@ -23,7 +23,7 @@ services:
         scope: RUN_TIME
         type: SECRET
       - key: GITHUB_REPO
-        value: YOUR_GITHUB_USERNAME/mcp-servers-deployment
+        value: klogins-hash/mcp-servers-deployment
       - key: SSH_ENABLED
         value: "true"
     run_command: |
